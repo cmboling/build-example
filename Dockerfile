@@ -18,13 +18,7 @@ RUN /tools/codeql/codeql database init codeql-database --language java --source-
 
 # source the env vars
 RUN cat /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
-RUN . /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
-
-# build code
-RUN javac HelloBelfast.java
-
-# finalize db
-RUN /tools/codeql/codeql database finalize codeql-database
+RUN . /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh && javac HelloBelfast.java && /tools/codeql/codeql database finalize codeql-database
 
 # codeql analyze with default queries
 RUN /tools/codeql/codeql database analyze codeql-database java-code-scanning.qls --format=sarif-latest --output=codeql-java-results.sarif
