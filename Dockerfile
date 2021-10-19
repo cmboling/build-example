@@ -23,5 +23,8 @@ RUN . /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
 # build code
 RUN javac HelloBelfast.java
 
+# finalize db
+RUN /tools/codeql/codeql database finalize codeql-database
+
 # codeql analyze with default queries
 RUN /tools/codeql/codeql database analyze codeql-database java-code-scanning.qls --format=sarif-latest --output=codeql-java-results.sarif
