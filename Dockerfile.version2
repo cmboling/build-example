@@ -14,4 +14,4 @@ COPY src /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 # run analysis
-RUN ./analyse.sh
+RUN ./src/analyse.sh
