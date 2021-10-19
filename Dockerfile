@@ -17,8 +17,8 @@ WORKDIR /usr/src/myapp
 RUN /tools/codeqlcodeql database init codeql-database --language java --source-root . --begin-tracing -vvvv
 
 # source the env vars
-cat /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
-source /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
+RUN cat /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
+RUN source /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
 
 # build code
 RUN javac HelloBelfast.java
