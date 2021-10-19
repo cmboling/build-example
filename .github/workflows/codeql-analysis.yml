@@ -32,7 +32,7 @@ jobs:
         languages: ${{ matrix.language }}
 
     - run: |
-        javac HelloBelfast.java
+        javac src/HelloBelfast.java
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
