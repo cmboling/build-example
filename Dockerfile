@@ -14,7 +14,7 @@ COPY src /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 # codeql create
-RUN /tools/codeqlcodeql database init codeql-database --language java --source-root . --begin-tracing -vvvv
+RUN /tools/codeql/codeql database init codeql-database --language java --source-root . --begin-tracing -vvvv
 
 # source the env vars
 RUN cat /usr/src/myapp/codeql-database/temp/tracingEnvironment/start-tracing.sh
